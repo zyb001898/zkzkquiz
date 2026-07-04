@@ -17,10 +17,13 @@
       <aside class="context-panel" aria-label="四维评分">
         <div class="context-top">
           <p class="eyebrow">四维评分</p>
-          <h2>圆越大，代表这类感受越强</h2>
         </div>
         <div class="bubble-chart" id="bubbleChart"></div>
-        <p class="bubble-note">这不是诊断，只是把你的答案转成四个观察角度。</p>
+        <div class="bubble-quote" id="bubbleQuote" aria-live="polite">
+          <p class="quote-dimension" id="quoteDimension">浪漫吸引</p>
+          <p class="quote-text" id="quoteText"></p>
+          <p class="quote-source" id="quoteSource"></p>
+        </div>
       </aside>
 
       <section class="quiz-panel" aria-live="polite">
@@ -30,7 +33,6 @@
         </div>
 
         <section class="screen intro-screen is-active" id="introScreen">
-          <p class="eyebrow">自我观察问答</p>
           <h1 id="appTitle">你对 TA 更像爱情还是友情？</h1>
           <p class="intro-copy" id="appDescription">
             请想象一个具体的人，并根据你最近一段时间的真实感受作答。
@@ -47,7 +49,7 @@
           >
 
           <button class="primary-action" id="startButton" type="button">开始答题</button>
-          <p class="privacy-copy" id="privacyCopy">所有答案只在本地浏览器中计算。</p>
+          <p class="privacy-copy" id="privacyCopy" hidden>所有答案只在本地浏览器中计算。</p>
         </section>
 
         <section class="screen question-screen" id="questionScreen">
@@ -90,7 +92,7 @@
           <p class="result-summary" id="resultSummary"></p>
 
           <div class="result-analysis" id="resultAnalysis"></div>
-          <div class="result-highlight" id="resultHighlight"></div>
+          <div class="result-highlight" id="resultHighlight" hidden></div>
           <div class="score-section" id="dimensionScores"></div>
           <div class="score-section compact" id="computedScores"></div>
 

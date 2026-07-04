@@ -4,7 +4,8 @@ const state = {
   currentIndex: 0,
   answers: {},
   isAnimating: false,
-  questionAnimationTimer: null
+  questionAnimationTimer: null,
+  quoteIndexes: {}
 };
 
 const QUESTION_TRANSITION_MS = 220;
@@ -31,6 +32,9 @@ const els = {
   questionText: document.querySelector("#questionText"),
   optionList: document.querySelector("#optionList"),
   bubbleChart: document.querySelector("#bubbleChart"),
+  quoteDimension: document.querySelector("#quoteDimension"),
+  quoteText: document.querySelector("#quoteText"),
+  quoteSource: document.querySelector("#quoteSource"),
   showResultButton: document.querySelector("#showResultButton"),
   resultTitle: document.querySelector("#resultTitle"),
   resultSummary: document.querySelector("#resultSummary"),
@@ -272,7 +276,9 @@ function renderResult() {
 
   showScreen("result");
   scrollQuizIntoView();
+  state.quoteIndexes = {};
   renderScoreBubbles(scores.dimensionList);
+  showDimensionQuote(topDimensions[0]?.id || scores.dimensionList[0]?.id, { advance: false });
   els.progressFill.style.width = "100%";
   els.progressPercent.textContent = "100%";
   els.resultTitle.textContent = personalize(result.title);
@@ -463,12 +469,37 @@ function buildObservationAnalysis(questionId) {
   return selectedOption?.analysis || "";
 }
 
+function showDimensionQuote(dimensionId, options = {}) {
+  const dimension = state.data.dimensions.find((item) => item.id === dimensionId);
+  const quotes = dimension?.quotes || [];
+  if (!dimension || quotes.length === 0) {
+    return;
+  }
+
+  const currentIndex = state.quoteIndexes[dimensionId] ?? -1;
+  const nextIndex = options.advance === false && currentIndex >= 0
+    ? currentIndex
+    : (currentIndex + 1 + quotes.length) % quotes.length;
+  const quote = quotes[nextIndex];
+
+  state.quoteIndexes[dimensionId] = nextIndex;
+  els.quoteDimension.textContent = dimension.name;
+  els.quoteText.textContent = quote.text;
+  els.quoteSource.textContent = quote.source ? `— ${quote.source}` : "";
+
+  els.bubbleChart.querySelectorAll(".score-bubble").forEach((bubble) => {
+    bubble.classList.toggle("is-active", bubble.dataset.dimensionId === dimensionId);
+  });
+}
+
 function renderScoreBubbles(dimensions) {
   els.bubbleChart.innerHTML = dimensions.map((dimension) => {
     const size = Math.round(72 + dimension.score * 0.66);
     return `
-      <article
+      <button
         class="score-bubble"
+        type="button"
+        data-dimension-id="${dimension.id}"
         style="--bubble-color: ${dimension.color}; --bubble-size: ${size}px"
         aria-label="${dimension.name} ${dimension.score} 分"
       >
@@ -476,9 +507,13 @@ function renderScoreBubbles(dimensions) {
           <span class="bubble-score">${dimension.score}</span>
           <span class="bubble-name">${dimension.name}</span>
         </span>
-      </article>
+      </button>
     `;
   }).join("");
+
+  els.bubbleChart.querySelectorAll(".score-bubble").forEach((bubble) => {
+    bubble.addEventListener("click", () => showDimensionQuote(bubble.dataset.dimensionId));
+  });
 }
 
 function scrollQuizIntoView() {
