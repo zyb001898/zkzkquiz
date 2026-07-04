@@ -1,0 +1,644 @@
+{
+  "schemaVersion": "1.0.0",
+  "assessmentId": "love_or_friendship",
+  "title": "你对 TA 更像爱情还是友情？",
+  "subtitle": "一个用于自我观察的轻量问答",
+  "description": "请想象一个具体的人，并根据你最近一段时间的真实感受作答。结果用于帮助你区分浪漫吸引、亲密友情、优先程度和情绪波动，不用于替代真实沟通或心理诊断。",
+  "estimatedMinutes": 4,
+  "personToken": "TA",
+  "answerScale": {
+    "id": "likert_0_4",
+    "min": 0,
+    "max": 4,
+    "options": [
+      {
+        "value": 0,
+        "label": "完全不符合",
+        "shortLabel": "完全不符"
+      },
+      {
+        "value": 1,
+        "label": "不太符合",
+        "shortLabel": "不太符合"
+      },
+      {
+        "value": 2,
+        "label": "说不清 / 偶尔",
+        "shortLabel": "说不清"
+      },
+      {
+        "value": 3,
+        "label": "比较符合",
+        "shortLabel": "比较符合"
+      },
+      {
+        "value": 4,
+        "label": "非常符合",
+        "shortLabel": "非常符合"
+      }
+    ]
+  },
+  "dimensions": [
+    {
+      "id": "romantic_attraction",
+      "code": "R",
+      "name": "浪漫吸引",
+      "description": "你是否把 TA 放进恋爱、亲密关系或长期伴侣的想象中。",
+      "color": "#D9486E"
+    },
+    {
+      "id": "intimate_trust",
+      "code": "C",
+      "name": "亲密信任",
+      "description": "你是否愿意和 TA 分享真实生活，也能在 TA 面前放松和袒露。",
+      "color": "#2F80ED"
+    },
+    {
+      "id": "special_priority",
+      "code": "P",
+      "name": "优先程度",
+      "description": "TA 是否比普通朋友更容易被你关注、选择和优先考虑。",
+      "color": "#F2994A"
+    },
+    {
+      "id": "attachment_activation",
+      "code": "A",
+      "name": "情绪波动",
+      "description": "和 TA 相关的不确定、失联、竞争或被忽视，是否明显牵动你的情绪。",
+      "color": "#9B51E0"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q01",
+      "text": "你在现实生活中会期待和 TA 有接触机会。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "细化自原题：现实生活接触频率",
+      "dimensionWeights": [
+        {
+          "dimensionId": "special_priority",
+          "weight": 0.6
+        },
+        {
+          "dimensionId": "intimate_trust",
+          "weight": 0.3
+        }
+      ]
+    },
+    {
+      "id": "q02",
+      "text": "即使没有正事，你也会想和 TA 聊几句。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "细化自原题：线下不见面是否会在社交软件上聊天",
+      "dimensionWeights": [
+        {
+          "dimensionId": "special_priority",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "id": "q03",
+      "text": "看到 TA 的消息提醒时，你会比看到普通朋友消息更想立刻点开。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "细化自原题：看到消息提示是否兴奋",
+      "dimensionWeights": [
+        {
+          "dimensionId": "special_priority",
+          "weight": 0.7
+        },
+        {
+          "dimensionId": "attachment_activation",
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": "q04",
+      "text": "你会留意 TA 是否看了、回了、点赞了你的动态。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "细化自原题：是否特别关注朋友圈点赞",
+      "dimensionWeights": [
+        {
+          "dimensionId": "attachment_activation",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "id": "q05",
+      "text": "你给 TA 的备注、称呼、置顶或聊天入口，和普通朋友不太一样。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "细化自原题：微信中怎么命名 TA",
+      "dimensionWeights": [
+        {
+          "dimensionId": "special_priority",
+          "weight": 0.8
+        }
+      ]
+    },
+    {
+      "id": "q06",
+      "text": "如果一个星期联系不到 TA，你会明显想念、失落或不安。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "细化自原题：一个星期联系不到的感觉",
+      "dimensionWeights": [
+        {
+          "dimensionId": "attachment_activation",
+          "weight": 0.9
+        },
+        {
+          "dimensionId": "special_priority",
+          "weight": 0.4
+        }
+      ]
+    },
+    {
+      "id": "q07",
+      "text": "你愿意和 TA 分享自己喜欢的书、音乐、电影、经历或生活细节。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "细化自原题：是否互相分享喜欢的作品和经历",
+      "dimensionWeights": [
+        {
+          "dimensionId": "intimate_trust",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "id": "q08",
+      "text": "你也希望 TA 主动和你分享 TA 的私人感受或重要经历。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "补充题：用于区分单向关注和双向亲密",
+      "dimensionWeights": [
+        {
+          "dimensionId": "intimate_trust",
+          "weight": 0.8
+        },
+        {
+          "dimensionId": "special_priority",
+          "weight": 0.3
+        }
+      ]
+    },
+    {
+      "id": "q09",
+      "text": "和 TA 聊天会让你开心、放松，或者觉得被理解。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "细化自原题：聊天是否开心和放松",
+      "dimensionWeights": [
+        {
+          "dimensionId": "intimate_trust",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "text": "在 TA 面前，你能比较真实地表达脆弱、愤怒、恐惧或不安。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "细化自原题：是否能袒露愤怒、恐惧、嫉妒等情绪",
+      "dimensionWeights": [
+        {
+          "dimensionId": "intimate_trust",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "text": "TA 的重要时刻，你会希望自己能在场。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "细化自原题：重要时刻是否想在场",
+      "dimensionWeights": [
+        {
+          "dimensionId": "intimate_trust",
+          "weight": 0.6
+        },
+        {
+          "dimensionId": "special_priority",
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "text": "当你遇到开心或难过的事，会想第一时间告诉 TA。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "补充题：用于衡量情绪分享对象的优先级",
+      "dimensionWeights": [
+        {
+          "dimensionId": "intimate_trust",
+          "weight": 0.7
+        },
+        {
+          "dimensionId": "special_priority",
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "text": "你想象过和 TA 成为情侣或相爱的场景。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "细化自原题：是否想象过相爱在一起",
+      "dimensionWeights": [
+        {
+          "dimensionId": "romantic_attraction",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "text": "这种恋爱想象整体上让你感到期待、甜蜜或心动。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "细化自原题：恋爱想象带来焦虑还是快乐",
+      "dimensionWeights": [
+        {
+          "dimensionId": "romantic_attraction",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "text": "比起一群人一起见面，你更期待和 TA 单独相处。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "补充题：用于区分群体友谊和一对一亲近期待",
+      "dimensionWeights": [
+        {
+          "dimensionId": "romantic_attraction",
+          "weight": 0.7
+        },
+        {
+          "dimensionId": "special_priority",
+          "weight": 0.4
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "text": "你会在意自己对 TA 来说是不是特别的。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "补充题：用于衡量特殊性需求",
+      "dimensionWeights": [
+        {
+          "dimensionId": "special_priority",
+          "weight": 0.8
+        },
+        {
+          "dimensionId": "attachment_activation",
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "text": "如果今天要见 TA，你会比见普通朋友更在意穿着、状态或表现。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "细化自原题：见面是否刻意着装打扮",
+      "dimensionWeights": [
+        {
+          "dimensionId": "romantic_attraction",
+          "weight": 0.5
+        },
+        {
+          "dimensionId": "special_priority",
+          "weight": 0.4
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "text": "如果 TA 说自己对别人有感觉，你会明显失落、吃醋或心里一沉。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "细化自原题：TA 对别人有感觉时的反应",
+      "dimensionWeights": [
+        {
+          "dimensionId": "attachment_activation",
+          "weight": 1
+        },
+        {
+          "dimensionId": "romantic_attraction",
+          "weight": 0.4
+        },
+        {
+          "dimensionId": "special_priority",
+          "weight": 0.4
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "text": "如果 TA 真的和别人恋爱，你仍然能比较真诚地祝福 TA。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "补充反向题：用于观察边界感和占有性情绪",
+      "dimensionWeights": [
+        {
+          "dimensionId": "attachment_activation",
+          "weight": 0.7,
+          "reverse": true
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "text": "如果你已经和朋友有约，但 TA 临时约你，你会很想调整原来的安排。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "细化自原题：是否会调动朋友 A 的时间",
+      "dimensionWeights": [
+        {
+          "dimensionId": "special_priority",
+          "weight": 1
+        },
+        {
+          "dimensionId": "attachment_activation",
+          "weight": 0.4
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "text": "你想象过和 TA 有更长期、更稳定的未来关系。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "细化自原题：未来最可能的关系",
+      "dimensionWeights": [
+        {
+          "dimensionId": "romantic_attraction",
+          "weight": 0.9
+        },
+        {
+          "dimensionId": "intimate_trust",
+          "weight": 0.3
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "text": "你对 TA 有过牵手、拥抱、靠近等身体亲密层面的想象或期待。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "补充题：用于区分浪漫吸引和纯粹亲密友情",
+      "dimensionWeights": [
+        {
+          "dimensionId": "romantic_attraction",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "text": "你喜欢的不只是 TA 对你的关注，也包括 TA 这个人本身的性格、选择和生活方式。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "补充题：用于区分被关注感和对具体个体的喜欢",
+      "dimensionWeights": [
+        {
+          "dimensionId": "intimate_trust",
+          "weight": 0.5
+        },
+        {
+          "dimensionId": "romantic_attraction",
+          "weight": 0.3
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "text": "当你想到这段关系时，整体感觉更多是稳定、温暖和靠近，而不是反复猜测、比较或不甘心。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "补充反向题：用于观察关系感受是否主要由焦虑驱动",
+      "dimensionWeights": [
+        {
+          "dimensionId": "intimate_trust",
+          "weight": 0.5
+        },
+        {
+          "dimensionId": "attachment_activation",
+          "weight": 0.8,
+          "reverse": true
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "questionScoreRange": [
+      0,
+      4
+    ],
+    "normalizedScoreRange": [
+      0,
+      100
+    ],
+    "dimensionScoreMethod": "For each dimension, use the weighted average of all contributing question scores. If a dimension weight has reverse=true, convert the raw answer by maxValue - rawValue before normalization. Normalize each answer with answer / 4 * 100.",
+    "computedScores": [
+      {
+        "id": "love_tendency",
+        "name": "爱情倾向分",
+        "description": "浪漫吸引、优先程度和亲密信任的综合结果。",
+        "formula": [
+          {
+            "dimensionId": "romantic_attraction",
+            "weight": 0.5
+          },
+          {
+            "dimensionId": "special_priority",
+            "weight": 0.3
+          },
+          {
+            "dimensionId": "intimate_trust",
+            "weight": 0.2
+          }
+        ]
+      },
+      {
+        "id": "friendship_closeness",
+        "name": "友情亲密分",
+        "description": "亲密信任高、浪漫吸引较低，并且能真诚祝福 TA 的结果。",
+        "formula": [
+          {
+            "dimensionId": "intimate_trust",
+            "weight": 0.6
+          },
+          {
+            "dimensionId": "romantic_attraction",
+            "weight": 0.25,
+            "inverse": true
+          },
+          {
+            "questionId": "q19",
+            "weight": 0.15
+          }
+        ]
+      },
+      {
+        "id": "mixed_ambiguity",
+        "name": "暧昧混合分",
+        "description": "浪漫吸引、亲密信任和优先程度同时处在中高区间时更明显。",
+        "formula": [
+          {
+            "dimensionId": "romantic_attraction",
+            "weight": 0.35
+          },
+          {
+            "dimensionId": "intimate_trust",
+            "weight": 0.3
+          },
+          {
+            "dimensionId": "special_priority",
+            "weight": 0.35
+          }
+        ]
+      },
+      {
+        "id": "attachment_risk",
+        "name": "情绪依恋提示分",
+        "description": "不确定、吃醋、失联、被忽视等因素带来的情绪牵动程度。",
+        "formula": [
+          {
+            "dimensionId": "attachment_activation",
+            "weight": 1
+          }
+        ]
+      }
+    ],
+    "resultRules": [
+      {
+        "id": "romantic_likely",
+        "priority": 100,
+        "title": "更像爱情倾向",
+        "summary": "你对 TA 的浪漫想象、特殊关注和亲密期待都比较明显。这更接近爱情或恋爱好感，而不仅是普通友情。",
+        "conditions": [
+          {
+            "scoreId": "love_tendency",
+            "operator": ">=",
+            "value": 70
+          },
+          {
+            "dimensionId": "romantic_attraction",
+            "operator": ">=",
+            "value": 60
+          }
+        ]
+      },
+      {
+        "id": "close_friendship_likely",
+        "priority": 90,
+        "title": "更像亲密友情",
+        "summary": "你们之间有较强的信任和舒服感，但浪漫吸引和占有式情绪并不突出。这更像珍贵的亲密友情。",
+        "conditions": [
+          {
+            "scoreId": "friendship_closeness",
+            "operator": ">=",
+            "value": 70
+          },
+          {
+            "dimensionId": "romantic_attraction",
+            "operator": "<",
+            "value": 45
+          },
+          {
+            "dimensionId": "special_priority",
+            "operator": "<",
+            "value": 60
+          }
+        ]
+      },
+      {
+        "id": "ambiguous_mixed",
+        "priority": 80,
+        "title": "暧昧或混合型好感",
+        "summary": "你对 TA 既有亲密信任，也有一些特殊关注和浪漫想象，但还没有稳定地指向爱情或友情。可以继续观察自己真正期待的关系形式。",
+        "conditions": [
+          {
+            "scoreId": "mixed_ambiguity",
+            "operator": ">=",
+            "value": 60
+          },
+          {
+            "dimensionId": "romantic_attraction",
+            "operator": ">=",
+            "value": 45
+          },
+          {
+            "dimensionId": "romantic_attraction",
+            "operator": "<",
+            "value": 70
+          }
+        ]
+      },
+      {
+        "id": "attachment_driven",
+        "priority": 70,
+        "title": "情绪依恋较强，暂不急着下结论",
+        "summary": "TA 很能牵动你的情绪，但这不一定等同于爱情。里面可能混有不确定感、竞争感、被关注的需求或害怕失去。",
+        "conditions": [
+          {
+            "scoreId": "attachment_risk",
+            "operator": ">=",
+            "value": 70
+          },
+          {
+            "dimensionId": "romantic_attraction",
+            "operator": "<",
+            "value": 60
+          }
+        ]
+      },
+      {
+        "id": "light_interest_or_unclear",
+        "priority": 10,
+        "title": "好感较浅或信息不足",
+        "summary": "目前的答案还不足以支持明确判断。可能只是普通好感、熟悉带来的亲近，或者你们的互动还不够多。",
+        "conditions": [
+          {
+            "scoreId": "love_tendency",
+            "operator": "<",
+            "value": 55
+          },
+          {
+            "scoreId": "friendship_closeness",
+            "operator": "<",
+            "value": 65
+          }
+        ]
+      }
+    ],
+    "fallbackResult": {
+      "id": "balanced_unclear",
+      "title": "关系感受还比较复杂",
+      "summary": "你的答案没有落入单一类型。可以重点看四个维度中最高的两个：它们通常比总分更能说明你现在真正被什么牵动。"
+    }
+  },
+  "uiHints": {
+    "showProgress": true,
+    "allowBack": true,
+    "shuffleQuestions": false,
+    "showDimensionBarsOnResult": true,
+    "showComputedScoresOnResult": true,
+    "privacyNotice": "所有答案建议只保存在本地浏览器，不上传到服务器。"
+  }
+}

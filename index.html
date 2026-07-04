@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>你对 TA 更像爱情还是友情？</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="page-pattern" aria-hidden="true">
+      <span class="band band-coral"></span>
+      <span class="band band-blue"></span>
+      <span class="band band-green"></span>
+    </div>
+
+    <main class="app-shell">
+      <aside class="context-panel" aria-label="四维评分">
+        <div class="context-top">
+          <p class="eyebrow">四维评分</p>
+          <h2>圆越大，代表这类感受越强</h2>
+        </div>
+        <div class="bubble-chart" id="bubbleChart"></div>
+        <p class="bubble-note">这不是诊断，只是把你的答案转成四个观察角度。</p>
+      </aside>
+
+      <section class="quiz-panel" aria-live="polite">
+        <div class="loading-screen" id="loadingScreen">
+          <div class="pulse-line"></div>
+          <p>正在准备题目</p>
+        </div>
+
+        <section class="screen intro-screen is-active" id="introScreen">
+          <p class="eyebrow">自我观察问答</p>
+          <h1 id="appTitle">你对 TA 更像爱情还是友情？</h1>
+          <p class="intro-copy" id="appDescription">
+            请想象一个具体的人，并根据你最近一段时间的真实感受作答。
+          </p>
+
+          <label class="name-label" for="subjectName">把 TA 换成一个你心里的人</label>
+          <input
+            class="name-input"
+            id="subjectName"
+            type="text"
+            maxlength="24"
+            placeholder="例如：TA、名字缩写、某个人"
+            autocomplete="off"
+          >
+
+          <button class="primary-action" id="startButton" type="button">开始答题</button>
+          <p class="privacy-copy" id="privacyCopy">所有答案只在本地浏览器中计算。</p>
+        </section>
+
+        <section class="screen question-screen" id="questionScreen">
+          <header class="question-header">
+            <button class="icon-button" id="backButton" type="button" aria-label="返回上一题">
+              <span aria-hidden="true">←</span>
+            </button>
+            <div class="progress-wrap">
+              <div class="progress-meta">
+                <span id="questionCounter">第 1 题</span>
+                <span id="progressPercent">0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+              </div>
+            </div>
+          </header>
+
+          <div class="question-body">
+            <p class="question-kicker" id="questionKicker">请按真实感受选择</p>
+            <h2 id="questionText">题目内容</h2>
+          </div>
+
+          <div class="option-list" id="optionList"></div>
+        </section>
+
+        <section class="screen result-screen" id="resultScreen">
+          <p class="eyebrow">你的结果</p>
+          <h2 id="resultTitle">关系感受还比较复杂</h2>
+          <p class="result-summary" id="resultSummary"></p>
+
+          <div class="result-highlight" id="resultHighlight"></div>
+          <div class="score-section" id="dimensionScores"></div>
+          <div class="score-section compact" id="computedScores"></div>
+
+          <div class="result-actions">
+            <button class="secondary-action" id="reviewButton" type="button">回看题目</button>
+            <button class="primary-action" id="restartButton" type="button">重新开始</button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="data.js" defer></script>
+    <script src="app.js" defer></script>
+  </body>
+</html>
