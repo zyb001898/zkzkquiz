@@ -374,6 +374,7 @@ h1 {
 
 .question-screen {
   gap: 22px;
+  overflow-y: auto;
   scrollbar-gutter: stable;
 }
 

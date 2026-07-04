@@ -172,17 +172,18 @@ function renderQuestion(direction = "forward") {
   els.optionList.innerHTML = "";
 
   const currentAnswer = state.answers[question.id];
-  data.answerScale.options.forEach((option) => {
+  const options = getQuestionOptions(question, data);
+  options.forEach((option, index) => {
     const button = document.createElement("button");
     button.className = "option-button";
     button.type = "button";
-    button.dataset.value = option.value;
+    button.dataset.value = String(option.value);
     button.innerHTML = `
-      <span class="option-index">${option.value}</span>
+      <span class="option-index">${getOptionMarker(index)}</span>
       <span class="option-label">${option.label}</span>
     `;
 
-    if (currentAnswer === option.value) {
+    if (String(currentAnswer) === String(option.value)) {
       button.classList.add("is-selected");
     }
 
@@ -201,7 +202,7 @@ function selectAnswer(questionId, value) {
   state.answers[questionId] = value;
 
   [...els.optionList.children].forEach((button) => {
-    const selected = Number(button.dataset.value) === value;
+    const selected = String(button.dataset.value) === String(value);
     button.classList.toggle("is-selected", selected);
     button.disabled = true;
   });
@@ -276,7 +277,7 @@ function renderResult() {
   els.progressPercent.textContent = "100%";
   els.resultTitle.textContent = personalize(result.title);
   els.resultSummary.textContent = personalize(result.summary);
-  renderResultAnalysis(result.analysis);
+  renderResultAnalysis([...(result.analysis || []), buildObservationAnalysis("q19")].filter(Boolean));
   els.resultHighlight.textContent = buildHighlight(topDimensions, loveScore, friendshipScore);
   renderDimensionScores(scores.dimensionList);
   renderComputedScores(scores.computedList);
@@ -293,7 +294,11 @@ function calculateScores() {
   );
 
   data.questions.forEach((question) => {
-    const answer = state.answers[question.id] ?? 0;
+    const answer = Number(state.answers[question.id] ?? 0);
+    if (!Number.isFinite(answer)) {
+      return;
+    }
+
     question.dimensionWeights?.forEach((item) => {
       const dimension = dimensionTotals[item.dimensionId];
       if (!dimension) {
@@ -327,7 +332,8 @@ function calculateScores() {
         value = dimensionMap[item.dimensionId]?.score || 0;
       }
       if (item.questionId) {
-        value = normalize(state.answers[item.questionId] ?? 0, maxValue);
+        const answer = Number(state.answers[item.questionId] ?? 0);
+        value = Number.isFinite(answer) ? normalize(answer, maxValue) : 0;
       }
       if (item.inverse) {
         value = 100 - value;
@@ -425,6 +431,36 @@ function renderResultAnalysis(analysis) {
     <p>${personalize(paragraph)}</p>
   `).join("");
   els.resultAnalysis.hidden = paragraphs.length === 0;
+}
+
+function getQuestionOptions(question, data) {
+  const sourceOptions = question.options || data.answerScale.options;
+  const optionMap = new Map(sourceOptions.map((option) => [String(option.value), option]));
+
+  if (!Array.isArray(question.optionOrder)) {
+    return sourceOptions;
+  }
+
+  const orderedOptions = question.optionOrder
+    .map((value) => optionMap.get(String(value)))
+    .filter(Boolean);
+
+  return orderedOptions.length ? orderedOptions : sourceOptions;
+}
+
+function getOptionMarker(index) {
+  return String.fromCharCode(65 + index);
+}
+
+function buildObservationAnalysis(questionId) {
+  const question = state.data.questions.find((item) => item.id === questionId);
+  if (!question?.options) {
+    return "";
+  }
+
+  const selectedValue = state.answers[question.id];
+  const selectedOption = question.options.find((option) => String(option.value) === String(selectedValue));
+  return selectedOption?.analysis || "";
 }
 
 function renderScoreBubbles(dimensions) {

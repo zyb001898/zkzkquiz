@@ -1,10 +1,10 @@
 window.ASSESSMENT_DATA = {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "assessmentId": "love_or_friendship",
   "title": "你对 TA 更像爱情还是友情？",
   "subtitle": "一个用于自我观察的轻量问答",
-  "description": "请想象一个具体的人，并根据你最近一段时间的真实感受作答。结果用于帮助你区分浪漫吸引、亲密友情、优先程度和情绪波动，不用于替代真实沟通或心理诊断。",
-  "estimatedMinutes": 4,
+  "description": "请想象一个具体的人，并根据你最近一段时间的真实感受作答。结果用于帮助你区分浪漫吸引、亲密信任、优先程度和情绪波动；其中也有一题只观察态度和表达方式，不参与线性评分。",
+  "estimatedMinutes": 5,
   "personToken": "TA",
   "answerScale": {
     "id": "likert_0_4",
@@ -84,6 +84,13 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "intimate_trust",
           "weight": 0.3
         }
+      ],
+      "optionOrder": [
+        2,
+        4,
+        1,
+        3,
+        0
       ]
     },
     {
@@ -97,6 +104,13 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "special_priority",
           "weight": 1
         }
+      ],
+      "optionOrder": [
+        1,
+        3,
+        0,
+        4,
+        2
       ]
     },
     {
@@ -114,19 +128,34 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "attachment_activation",
           "weight": 0.5
         }
+      ],
+      "optionOrder": [
+        3,
+        0,
+        2,
+        4,
+        1
       ]
     },
     {
       "id": "q04",
-      "text": "你会留意 TA 是否看了、回了、点赞了你的动态。",
+      "text": "即使 TA 没有看、回或点赞你的动态，你也不太会反复猜测这件事。",
       "type": "likert",
       "required": true,
-      "sourceNote": "细化自原题：是否特别关注朋友圈点赞",
+      "sourceNote": "反向题：用于观察动态回应是否会牵动不确定感",
       "dimensionWeights": [
         {
           "dimensionId": "attachment_activation",
-          "weight": 1
+          "weight": 0.9,
+          "reverse": true
         }
+      ],
+      "optionOrder": [
+        4,
+        1,
+        3,
+        0,
+        2
       ]
     },
     {
@@ -140,6 +169,13 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "special_priority",
           "weight": 0.8
         }
+      ],
+      "optionOrder": [
+        0,
+        3,
+        2,
+        4,
+        1
       ]
     },
     {
@@ -157,6 +193,13 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "special_priority",
           "weight": 0.4
         }
+      ],
+      "optionOrder": [
+        2,
+        0,
+        4,
+        1,
+        3
       ]
     },
     {
@@ -170,6 +213,13 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "intimate_trust",
           "weight": 1
         }
+      ],
+      "optionOrder": [
+        1,
+        4,
+        2,
+        0,
+        3
       ]
     },
     {
@@ -187,6 +237,13 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "special_priority",
           "weight": 0.3
         }
+      ],
+      "optionOrder": [
+        3,
+        1,
+        4,
+        2,
+        0
       ]
     },
     {
@@ -200,6 +257,13 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "intimate_trust",
           "weight": 1
         }
+      ],
+      "optionOrder": [
+        0,
+        2,
+        3,
+        1,
+        4
       ]
     },
     {
@@ -213,6 +277,13 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "intimate_trust",
           "weight": 1
         }
+      ],
+      "optionOrder": [
+        4,
+        2,
+        0,
+        3,
+        1
       ]
     },
     {
@@ -230,6 +301,13 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "special_priority",
           "weight": 0.5
         }
+      ],
+      "optionOrder": [
+        2,
+        4,
+        1,
+        3,
+        0
       ]
     },
     {
@@ -247,6 +325,13 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "special_priority",
           "weight": 0.5
         }
+      ],
+      "optionOrder": [
+        1,
+        3,
+        0,
+        4,
+        2
       ]
     },
     {
@@ -260,11 +345,18 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "romantic_attraction",
           "weight": 1
         }
+      ],
+      "optionOrder": [
+        3,
+        0,
+        2,
+        4,
+        1
       ]
     },
     {
       "id": "q14",
-      "text": "这种恋爱想象整体上让你感到期待、甜蜜或心动。",
+      "text": "想象和 TA 走进恋爱关系时，你会感到期待、甜蜜或心动，即使里面也夹着一点紧张。",
       "type": "likert",
       "required": true,
       "sourceNote": "细化自原题：恋爱想象带来焦虑还是快乐",
@@ -273,6 +365,13 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "romantic_attraction",
           "weight": 1
         }
+      ],
+      "optionOrder": [
+        4,
+        1,
+        3,
+        0,
+        2
       ]
     },
     {
@@ -290,6 +389,13 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "special_priority",
           "weight": 0.4
         }
+      ],
+      "optionOrder": [
+        0,
+        3,
+        2,
+        4,
+        1
       ]
     },
     {
@@ -307,6 +413,13 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "attachment_activation",
           "weight": 0.5
         }
+      ],
+      "optionOrder": [
+        2,
+        0,
+        4,
+        1,
+        3
       ]
     },
     {
@@ -324,6 +437,13 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "special_priority",
           "weight": 0.4
         }
+      ],
+      "optionOrder": [
+        1,
+        4,
+        2,
+        0,
+        3
       ]
     },
     {
@@ -345,20 +465,54 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "special_priority",
           "weight": 0.4
         }
+      ],
+      "optionOrder": [
+        3,
+        1,
+        4,
+        2,
+        0
       ]
     },
     {
       "id": "q19",
-      "text": "如果 TA 真的和别人恋爱，你仍然能比较真诚地祝福 TA。",
-      "type": "likert",
+      "text": "如果 TA 告诉你“我好像对某个人有感觉”，你心里最先浮起来的更接近哪一种？",
+      "type": "single_choice",
       "required": true,
-      "sourceNote": "补充反向题：用于观察边界感和占有性情绪",
-      "dimensionWeights": [
+      "sourceNote": "观察题：不进入线性评分，用于观察占有欲、边界感与表达爱意的方式",
+      "options": [
         {
-          "dimensionId": "attachment_activation",
-          "weight": 0.7,
-          "reverse": true
+          "value": "quiet_blessing",
+          "label": "心里会有一点波动，但更愿意把祝福放在前面",
+          "analysis": "第十九题没有进入分数，它更像一束旁光。你的选择偏向把喜欢安放在对方的自由旁边：心里也许会轻轻一沉，但你仍愿意让 TA 走向 TA 自己看见的春天。"
+        },
+        {
+          "value": "open_heartache",
+          "label": "会明显失落，也可能想让 TA 知道自己的在意",
+          "analysis": "第十九题没有进入分数，它记录的是爱意的温度。你的选择更像一团不愿完全藏起的火：失落会先冒出来，而表达本身也许就是你确认自己存在的一种方式。"
+        },
+        {
+          "value": "silent_waiting",
+          "label": "会把情绪收起来，不太打扰 TA 的选择",
+          "analysis": "第十九题没有进入分数，它看见的是一种克制。你的爱意像被折好的信，未必没有重量，只是更习惯放在抽屉里，等风声安静一点再决定要不要递出去。"
+        },
+        {
+          "value": "testing_signal",
+          "label": "会开始猜测 TA 的意思，想试探 TA 对自己的态度",
+          "analysis": "第十九题没有进入分数，它捕捉到的是不确定感的回声。你可能不只是听见 TA 提起别人，也在听见自己心里那句很轻的问题：我在 TA 那里，到底有没有一个特别的位置。"
+        },
+        {
+          "value": "easy_friendliness",
+          "label": "会比较自然地接受，像听普通朋友分享近况",
+          "analysis": "第十九题没有进入分数，它像一扇打开的窗。你的选择显示这段关系里有比较舒展的边界：TA 的靠近与远行，未必都会改写你自己的天气。"
         }
+      ],
+      "optionOrder": [
+        "testing_signal",
+        "quiet_blessing",
+        "open_heartache",
+        "easy_friendliness",
+        "silent_waiting"
       ]
     },
     {
@@ -376,6 +530,13 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "attachment_activation",
           "weight": 0.4
         }
+      ],
+      "optionOrder": [
+        0,
+        2,
+        3,
+        1,
+        4
       ]
     },
     {
@@ -393,6 +554,13 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "intimate_trust",
           "weight": 0.3
         }
+      ],
+      "optionOrder": [
+        4,
+        2,
+        0,
+        3,
+        1
       ]
     },
     {
@@ -406,6 +574,13 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "romantic_attraction",
           "weight": 1
         }
+      ],
+      "optionOrder": [
+        2,
+        4,
+        1,
+        3,
+        0
       ]
     },
     {
@@ -423,6 +598,13 @@ window.ASSESSMENT_DATA = {
           "dimensionId": "romantic_attraction",
           "weight": 0.3
         }
+      ],
+      "optionOrder": [
+        1,
+        3,
+        0,
+        4,
+        2
       ]
     },
     {
@@ -441,6 +623,89 @@ window.ASSESSMENT_DATA = {
           "weight": 0.8,
           "reverse": true
         }
+      ],
+      "optionOrder": [
+        3,
+        0,
+        2,
+        4,
+        1
+      ]
+    },
+    {
+      "id": "q25",
+      "text": "你曾经主动制造过和 TA 见面、聊天或单独相处的机会，哪怕只是一个很小的借口。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "参考新文档：是否主动约 TA 或计划制造接触",
+      "dimensionWeights": [
+        {
+          "dimensionId": "special_priority",
+          "weight": 0.6
+        },
+        {
+          "dimensionId": "romantic_attraction",
+          "weight": 0.4
+        }
+      ],
+      "optionOrder": [
+        4,
+        1,
+        3,
+        0,
+        2
+      ]
+    },
+    {
+      "id": "q26",
+      "text": "你会在朋友面前自然提起 TA，或者希望身边的人知道 TA 在你生活里的位置。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "参考新文档：朋友是否知道 TA、提及 TA 的频率",
+      "dimensionWeights": [
+        {
+          "dimensionId": "special_priority",
+          "weight": 0.5
+        },
+        {
+          "dimensionId": "intimate_trust",
+          "weight": 0.4
+        }
+      ],
+      "optionOrder": [
+        0,
+        3,
+        2,
+        4,
+        1
+      ]
+    },
+    {
+      "id": "q27",
+      "text": "你会用一些含蓄的方式试探 TA 的态度，比如分享一首歌、一张照片、一条只想让 TA 读懂的动态。",
+      "type": "likert",
+      "required": true,
+      "sourceNote": "参考新文档：是否用暗示性内容试探 TA 的态度",
+      "dimensionWeights": [
+        {
+          "dimensionId": "attachment_activation",
+          "weight": 0.7
+        },
+        {
+          "dimensionId": "special_priority",
+          "weight": 0.5
+        },
+        {
+          "dimensionId": "romantic_attraction",
+          "weight": 0.3
+        }
+      ],
+      "optionOrder": [
+        2,
+        0,
+        4,
+        1,
+        3
       ]
     }
   ],
@@ -453,7 +718,7 @@ window.ASSESSMENT_DATA = {
       0,
       100
     ],
-    "dimensionScoreMethod": "For each dimension, use the weighted average of all contributing question scores. If a dimension weight has reverse=true, convert the raw answer by maxValue - rawValue before normalization. Normalize each answer with answer / 4 * 100.",
+    "dimensionScoreMethod": "For each scored dimension, use the weighted average of all contributing numeric question scores. If a dimension weight has reverse=true, convert the raw answer by maxValue - rawValue before normalization. Normalize each answer with answer / 4 * 100. Questions without dimensionWeights are observation-only and do not enter numeric scoring.",
     "computedScores": [
       {
         "id": "love_tendency",
@@ -477,20 +742,21 @@ window.ASSESSMENT_DATA = {
       {
         "id": "friendship_closeness",
         "name": "友情亲密分",
-        "description": "亲密信任高、浪漫吸引较低，并且能真诚祝福 TA 的结果。",
+        "description": "亲密信任高、浪漫吸引较低，并且情绪波动较低时更明显。",
         "formula": [
           {
             "dimensionId": "intimate_trust",
-            "weight": 0.6
+            "weight": 0.64
           },
           {
             "dimensionId": "romantic_attraction",
-            "weight": 0.25,
+            "weight": 0.26,
             "inverse": true
           },
           {
-            "questionId": "q19",
-            "weight": 0.15
+            "dimensionId": "attachment_activation",
+            "weight": 0.1,
+            "inverse": true
           }
         ]
       },
@@ -532,9 +798,9 @@ window.ASSESSMENT_DATA = {
         "title": "更像爱情倾向",
         "summary": "你对 TA 的浪漫想象、特殊关注和亲密期待都比较明显。这更接近爱情或恋爱好感，而不仅是普通友情。",
         "analysis": [
-          "你的答案里，浪漫吸引和优先程度都比较突出。也就是说，TA 不只是一个让你舒服的人，更像是一个会被你放进亲密想象、未来关系和特殊位置里的人。",
-          "这类结果通常意味着你在意的不只是相处本身，还有自己在 TA 心里的独特性。你可能会期待单独相处、期待 TA 主动回应，也会在 TA 靠近别人时出现一点失落或比较。",
-          "如果你想继续确认，可以不急着问“这是不是爱情”，而是观察一个更具体的问题：你是否希望这段关系走向更稳定、更明确、更互相选择的亲密关系。"
+          "你的答案像把 TA 放在一束更亮的光里：人群还在，但你的目光会先绕到 TA 身上，未来也会不自觉为 TA 留出一小块位置。",
+          "浪漫吸引不只是想靠近，也是不甘心只停在普通称谓里。你也许期待一个更明确的回应，期待某些话不再藏在玩笑、暗示和沉默后面。",
+          "但喜欢并不一定要立刻变成宣告。它也可以先成为一条慢慢涨潮的河，让你看清自己真正想抵达的岸。"
         ],
         "conditions": [
           {
@@ -555,9 +821,9 @@ window.ASSESSMENT_DATA = {
         "title": "更像亲密友情",
         "summary": "你们之间有较强的信任和舒服感，但浪漫吸引和占有式情绪并不突出。这更像珍贵的亲密友情。",
         "analysis": [
-          "你的答案显示，TA 更像是一个能让你放松、信任、愿意分享生活的人。你珍惜这段连接，但未必强烈地想把它推向恋爱关系。",
-          "亲密友情并不比爱情浅。它也会有牵挂、默契、偏爱和重要性，只是它通常没有那么强的身体亲密想象、占有感或情侣身份期待。",
-          "如果你担心自己混淆了友情和爱情，可以看一个边界：当 TA 拥有自己的恋爱或其他重要关系时，你更多是祝福和稳定，还是强烈失落和不甘。"
+          "你的答案更像一盏稳定的灯：TA 重要、温暖、可信，但这份靠近未必急着换成恋爱的名字。",
+          "亲密友情不是爱情的影子。它也有牵挂和偏爱，只是少了一点想占有的火，多了一点并肩走路时的从容。",
+          "如果这段关系让你感到宽阔，那它已经在以自己的方式发光；不必因为没有心跳加速，就否认它的珍贵。"
         ],
         "conditions": [
           {
@@ -583,9 +849,9 @@ window.ASSESSMENT_DATA = {
         "title": "暧昧或混合型好感",
         "summary": "你对 TA 既有亲密信任，也有一些特殊关注和浪漫想象，但还没有稳定地指向爱情或友情。可以继续观察自己真正期待的关系形式。",
         "analysis": [
-          "你的答案落在一个比较微妙的位置：你对 TA 有亲近、信任和特别关注，也可能有一些心动或恋爱想象，但这些感受还没有完全稳定成一个明确方向。",
-          "暧昧或混合型好感常常不是“你没想清楚”，而是关系本身还在变化。你可能既享受现在的靠近，又害怕一旦说破，会失去原本舒服的部分。",
-          "接下来更值得观察的是互动是否具有双向性：TA 是否也在主动靠近、分享、选择你。如果只有你一个人在反复解读，情绪会比关系本身更快变重。"
+          "你的结果像黄昏里的颜色：友情和心动并没有清楚分开，而是在同一片天空里慢慢过渡。",
+          "你可能享受现在的亲近，也会在某些瞬间想多走一步；可那一步到底通往告白、暧昧，还是更深的陪伴，暂时还没有完全显影。",
+          "这种不确定不一定是混乱，也可能是关系正在生长。先看它是否双向流动，再决定要不要把名字说出口。"
         ],
         "conditions": [
           {
@@ -611,9 +877,9 @@ window.ASSESSMENT_DATA = {
         "title": "情绪依恋较强，暂不急着下结论",
         "summary": "TA 很能牵动你的情绪，但这不一定等同于爱情。里面可能混有不确定感、竞争感、被关注的需求或害怕失去。",
         "analysis": [
-          "你的答案里，情绪波动比浪漫吸引更醒目。TA 的回应、距离、失联或对别人的关注，可能会明显影响你的心情。",
-          "这不代表你的感受是假的。只是有时我们以为自己在确认“是不是喜欢”，其实是在确认“我对 TA 来说重不重要”。这种需要被看见、被选择的感觉，会把关系放大。",
-          "在做决定之前，可以先把节奏放慢：看看当不确定感下降时，你是否仍然欣赏 TA 这个人，仍然想靠近 TA，而不是只想得到一个让自己安心的答案。"
+          "你的答案里，最响的也许不是春天，而是回声。TA 的靠近、沉默、转身和偏向别人，都容易在你心里放大。",
+          "这份牵动是真实的，但它未必只指向爱情；有时它也在问一个更柔软的问题：我是不是被看见，我是不是被选择。",
+          "不妨等风小一点再判断。若不安退潮以后，你仍然想了解 TA、靠近 TA、珍惜 TA，那份心意会显出更清楚的轮廓。"
         ],
         "conditions": [
           {
@@ -634,9 +900,9 @@ window.ASSESSMENT_DATA = {
         "title": "好感较浅或信息不足",
         "summary": "目前的答案还不足以支持明确判断。可能只是普通好感、熟悉带来的亲近，或者你们的互动还不够多。",
         "analysis": [
-          "你的答案目前没有形成很强的爱情或亲密友情信号。你可能对 TA 有一点兴趣、好奇或熟悉感，但这份感觉还没有明显进入特殊位置。",
-          "这类结果并不意味着“没有可能”，也不意味着“你不在乎”。它更像是在说：现在的信息还不够多，感受也还没有强到需要立刻命名。",
-          "如果你愿意继续观察，可以多看真实互动，而不是只靠想象。很多感情不是在反复分析中变清楚，而是在一次次具体相处中慢慢显形。"
+          "你的结果像一扇还没有完全点亮的窗：有一点好奇，也有一点距离，但还没有强到必须命名。",
+          "这并不等于没有可能。只是现在的感受还像雾里的路灯，能看见光，却不一定看得见道路通向哪里。",
+          "与其急着替它下结论，不如多给真实相处一点时间。很多答案不是想出来的，是在一次次靠近和退后之间慢慢浮出来的。"
         ],
         "conditions": [
           {
@@ -657,9 +923,9 @@ window.ASSESSMENT_DATA = {
       "title": "关系感受还比较复杂",
       "summary": "你的答案没有落入单一类型。可以重点看四个维度中最高的两个：它们通常比总分更能说明你现在真正被什么牵动。",
       "analysis": [
-        "你的结果比较均衡或交错，说明这段关系很难被简单放进“爱情”或“友情”的盒子里。不同维度可能都在起作用，只是没有一个维度压倒性地成为主线。",
-        "这种复杂感本身就是一个重要信息：你可能还在同时感受亲近、好奇、安全、心动、不确定或犹豫。",
-        "与其急着给关系下定义，不如先问自己：如果不用考虑对方会怎么回应，你最希望这段关系往哪个方向生长。"
+        "你的结果像几条河在同一处汇流：亲近、好奇、安全、心动和犹豫都出现了，却没有谁完全成为主旋律。",
+        "这类复杂感本身就很有意义。它说明你面对的不是一道非黑即白的题，而是一段还在移动、还在呼吸的关系。",
+        "可以暂时不急着把它放进爱情或友情的盒子里。先听一听自己最安静时的愿望：如果不害怕失去，你希望它往哪里生长。"
       ]
     }
   },
@@ -669,7 +935,7 @@ window.ASSESSMENT_DATA = {
     "shuffleQuestions": false,
     "showDimensionBarsOnResult": true,
     "showComputedScoresOnResult": true,
-    "privacyNotice": "所有答案建议只保存在本地浏览器，不上传到服务器。"
+    "privacyNotice": "所有答案建议只保存在本地浏览器，不上传到服务器。",
+    "shuffleOptions": true
   }
-}
-;
+};
