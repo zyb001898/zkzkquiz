@@ -153,6 +153,8 @@ button {
   text-align: center;
   color: #fff;
   appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
   border: 7px solid rgba(255, 255, 255, 0.84);
   border-radius: 999px;
   background: var(--bubble-color);
@@ -182,8 +184,11 @@ button {
 }
 
 .score-bubble:focus-visible {
-  outline: 2px solid rgba(25, 32, 42, 0.42);
-  outline-offset: 5px;
+  outline: none;
+}
+
+.score-bubble:focus {
+  outline: none;
 }
 
 .score-bubble:nth-child(1) {

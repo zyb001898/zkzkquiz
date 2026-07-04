@@ -283,7 +283,10 @@ function renderResult() {
   els.progressPercent.textContent = "100%";
   els.resultTitle.textContent = personalize(result.title);
   els.resultSummary.textContent = personalize(result.summary);
-  renderResultAnalysis([...(result.analysis || []), buildObservationAnalysis("q19")].filter(Boolean));
+  renderResultAnalysis([
+    ...(result.analysis || []),
+    ...["q19", "q28"].map((questionId) => buildObservationAnalysis(questionId))
+  ].filter(Boolean));
   els.resultHighlight.textContent = buildHighlight(topDimensions, loveScore, friendshipScore);
   renderDimensionScores(scores.dimensionList);
   renderComputedScores(scores.computedList);

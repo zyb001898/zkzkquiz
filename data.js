@@ -795,6 +795,41 @@ window.ASSESSMENT_DATA = {
         1,
         3
       ]
+    },
+    {
+      "id": "q28",
+      "text": "如果 TA 真的和别人恋爱，你仍然可以真诚地祝福 TA 吗？",
+      "type": "single_choice",
+      "required": true,
+      "sourceNote": "观察题：不进入线性评分，用于观察占有欲、非他不可的强烈愿望，以及爱意表达方式",
+      "options": [
+        {
+          "value": "last_chance_confession",
+          "label": "不可以，我会在最后的机会表明心意。",
+          "analysis": "最后一题没有进入分数，它更像看见火焰的形状。你的选择里有一种不愿错过的决绝：如果 TA 要走向别人，你宁愿让心意在最后一刻亮出来，也不愿把它永远留在沉默里。"
+        },
+        {
+          "value": "uncertain_aftershock",
+          "label": "不可以，但我也不知道自己会做什么。",
+          "analysis": "最后一题没有进入分数，它记录的是情绪还没有找到出口的时刻。你也许不是一定要占有 TA，却很难立刻接受 TA 被另一个名字牵走；那份不知所措，本身已经说明 TA 在你心里并不普通。"
+        },
+        {
+          "value": "polite_blessing",
+          "label": "可以口头祝福，但并不真诚。",
+          "analysis": "最后一题没有进入分数，它像一层薄薄的礼貌，盖住了更深处的失落。你可以把体面说出口，却未必能让心也一起松手；有些祝福只是站在门口，还没有真正抵达。"
+        },
+        {
+          "value": "sincere_blessing",
+          "label": "可以真诚地献上祝福。",
+          "analysis": "最后一题没有进入分数，它看见的是一种宽阔的爱意。你可以承认 TA 对你重要，也允许 TA 拥有不以你为中心的幸福；这不是感情浅，而是心里有一片能让对方自由经过的原野。"
+        }
+      ],
+      "optionOrder": [
+        "last_chance_confession",
+        "uncertain_aftershock",
+        "polite_blessing",
+        "sincere_blessing"
+      ]
     }
   ],
   "scoring": {
