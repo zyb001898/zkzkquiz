@@ -15,6 +15,7 @@ const els = {
   loading: document.querySelector("#loadingScreen"),
   intro: document.querySelector("#introScreen"),
   question: document.querySelector("#questionScreen"),
+  reflection: document.querySelector("#reflectionScreen"),
   result: document.querySelector("#resultScreen"),
   quizPanel: document.querySelector(".quiz-panel"),
   appTitle: document.querySelector("#appTitle"),
@@ -30,8 +31,10 @@ const els = {
   questionText: document.querySelector("#questionText"),
   optionList: document.querySelector("#optionList"),
   bubbleChart: document.querySelector("#bubbleChart"),
+  showResultButton: document.querySelector("#showResultButton"),
   resultTitle: document.querySelector("#resultTitle"),
   resultSummary: document.querySelector("#resultSummary"),
+  resultAnalysis: document.querySelector("#resultAnalysis"),
   resultHighlight: document.querySelector("#resultHighlight"),
   dimensionScores: document.querySelector("#dimensionScores"),
   computedScores: document.querySelector("#computedScores"),
@@ -73,6 +76,7 @@ function bindEvents() {
     }
   });
   els.backButton.addEventListener("click", goBack);
+  els.showResultButton.addEventListener("click", renderResult);
   els.restartButton.addEventListener("click", restartQuiz);
   els.reviewButton.addEventListener("click", reviewAnswers);
 }
@@ -147,6 +151,7 @@ function showScreen(name) {
   els.appShell.classList.toggle("is-result", name === "result");
   els.intro.classList.toggle("is-active", name === "intro");
   els.question.classList.toggle("is-active", name === "question");
+  els.reflection.classList.toggle("is-active", name === "reflection");
   els.result.classList.toggle("is-active", name === "result");
 }
 
@@ -205,7 +210,7 @@ function selectAnswer(questionId, value) {
     if (state.currentIndex < state.data.questions.length - 1) {
       transitionToQuestion(state.currentIndex + 1, "forward");
     } else {
-      transitionToResult();
+      transitionToReflection();
     }
   }, SELECT_PAUSE_MS);
 }
@@ -222,13 +227,14 @@ function transitionToQuestion(nextIndex, direction) {
   }, QUESTION_TRANSITION_MS);
 }
 
-function transitionToResult() {
+function transitionToReflection() {
   state.isAnimating = true;
   resetQuestionAnimationClasses();
   els.question.classList.add("is-exiting", "to-forward");
 
   window.setTimeout(() => {
-    renderResult();
+    showScreen("reflection");
+    scrollQuizIntoView();
     state.isAnimating = false;
   }, QUESTION_TRANSITION_MS);
 }
@@ -270,6 +276,7 @@ function renderResult() {
   els.progressPercent.textContent = "100%";
   els.resultTitle.textContent = personalize(result.title);
   els.resultSummary.textContent = personalize(result.summary);
+  renderResultAnalysis(result.analysis);
   els.resultHighlight.textContent = buildHighlight(topDimensions, loveScore, friendshipScore);
   renderDimensionScores(scores.dimensionList);
   renderComputedScores(scores.computedList);
@@ -410,6 +417,14 @@ function renderComputedScores(scores) {
       </div>
     </article>
   `).join("");
+}
+
+function renderResultAnalysis(analysis) {
+  const paragraphs = Array.isArray(analysis) ? analysis : [];
+  els.resultAnalysis.innerHTML = paragraphs.map((paragraph) => `
+    <p>${personalize(paragraph)}</p>
+  `).join("");
+  els.resultAnalysis.hidden = paragraphs.length === 0;
 }
 
 function renderScoreBubbles(dimensions) {

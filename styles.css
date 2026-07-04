@@ -538,6 +538,72 @@ h1 {
   background: rgba(255, 255, 255, 0.16);
 }
 
+.reflection-screen {
+  justify-content: center;
+  background:
+    linear-gradient(145deg, rgba(255, 247, 250, 0.94), rgba(239, 248, 255, 0.92) 48%, rgba(247, 255, 241, 0.9)),
+    var(--surface);
+}
+
+.reflection-screen::before,
+.reflection-screen::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 120%;
+  height: 96px;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  opacity: 0.72;
+}
+
+.reflection-screen::before {
+  top: 16%;
+  background: linear-gradient(90deg, rgba(217, 72, 110, 0.18), rgba(47, 128, 237, 0.12), rgba(97, 165, 92, 0.14));
+  transform: translateX(-50%) rotate(-9deg);
+}
+
+.reflection-screen::after {
+  bottom: 18%;
+  background: linear-gradient(90deg, rgba(155, 81, 224, 0.14), rgba(242, 153, 74, 0.14), rgba(47, 128, 237, 0.12));
+  transform: translateX(-50%) rotate(8deg);
+}
+
+.reflection-card {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 18px;
+  width: min(560px, 100%);
+  margin: auto;
+  padding: clamp(26px, 5vw, 44px);
+  border: 1px solid rgba(216, 224, 230, 0.78);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.66);
+  box-shadow: 0 24px 70px rgba(28, 35, 45, 0.13);
+  backdrop-filter: blur(22px);
+}
+
+.reflection-line {
+  width: 86px;
+  height: 4px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--coral), var(--blue), var(--green));
+}
+
+.reflection-card h2 {
+  margin: 0;
+  font-size: clamp(1.72rem, 4.4vw, 2.55rem);
+  line-height: 1.38;
+}
+
+.reflection-copy {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
 .result-screen {
   overflow-y: auto;
 }
@@ -552,6 +618,22 @@ h1 {
   margin-bottom: 18px;
   color: var(--muted);
   line-height: 1.75;
+}
+
+.result-analysis {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+  padding: 16px;
+  border: 1px solid #dbe2e7;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.76);
+  color: #394453;
+  line-height: 1.72;
+}
+
+.result-analysis p {
+  margin: 0;
 }
 
 .result-highlight {

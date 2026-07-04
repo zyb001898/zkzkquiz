@@ -74,11 +74,22 @@
           <div class="option-list" id="optionList"></div>
         </section>
 
+        <section class="screen reflection-screen" id="reflectionScreen">
+          <div class="reflection-card">
+            <span class="reflection-line" aria-hidden="true"></span>
+            <p class="eyebrow">答案之前</p>
+            <h2>当你回答这些问题，一个一个设想对应的场景的时候，其实你已经有答案了</h2>
+            <p class="reflection-copy">下面的结果只是把那份已经浮现的感觉，换成更清楚的语言和四个观察角度。</p>
+            <button class="primary-action" id="showResultButton" type="button">查看结果</button>
+          </div>
+        </section>
+
         <section class="screen result-screen" id="resultScreen">
           <p class="eyebrow">你的结果</p>
           <h2 id="resultTitle">关系感受还比较复杂</h2>
           <p class="result-summary" id="resultSummary"></p>
 
+          <div class="result-analysis" id="resultAnalysis"></div>
           <div class="result-highlight" id="resultHighlight"></div>
           <div class="score-section" id="dimensionScores"></div>
           <div class="score-section compact" id="computedScores"></div>
