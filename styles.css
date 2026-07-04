@@ -746,6 +746,16 @@ h1 {
     padding: 18px 0;
   }
 
+  .app-shell.is-result {
+    grid-template-columns: minmax(0, 1fr);
+    width: min(820px, calc(100% - 32px));
+  }
+
+  .app-shell.is-result .quiz-panel,
+  .app-shell.is-result .context-panel {
+    min-width: 0;
+  }
+
   .quiz-panel {
     order: 1;
   }
@@ -785,6 +795,10 @@ h1 {
 
 @media (max-width: 620px) {
   .app-shell {
+    width: min(100% - 20px, 1120px);
+  }
+
+  .app-shell.is-result {
     width: min(100% - 20px, 1120px);
   }
 
