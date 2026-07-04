@@ -1,4 +1,4 @@
-# Love or Friendship Assessment
+# zkzkquiz
 
 一个本地优先的轻量网页问答，用来帮助区分对某个人的感受更偏向爱情、友情、暧昧混合，还是情绪依恋。
 
